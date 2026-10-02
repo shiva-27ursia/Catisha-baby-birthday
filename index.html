@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Catisha ♡ — From Ursia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+:root{
+  --pink:#ff8fab;--light:#fff5f8;--rose:#e85d7f;--dark:#54373f;
+  --cream:#fffaf6;--line:#ffd0dc;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--dark);font-family:"Baloo 2",sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,#fff 0,transparent 25%),
+    radial-gradient(circle at 90% 20%,#ffe1ea 0,transparent 30%),
+    linear-gradient(135deg,#fff8fa,#ffeef4);
+  overflow-x:hidden;
+}
+button{font:inherit}
+.hidden{display:none!important}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 14px;position:relative}
+.card{
+  width:min(980px,96vw);background:rgba(255,255,255,.86);
+  border:2px solid rgba(255,183,202,.55);border-radius:34px;
+  padding:clamp(24px,5vw,48px);box-shadow:0 24px 70px rgba(128,64,82,.14);
+  backdrop-filter:blur(12px);position:relative;z-index:2;
+}
+h1,h2,h3{margin:.2em 0;color:#d94f78}
+h1{font-size:clamp(3rem,10vw,7rem);line-height:.9}
+h2{font-size:clamp(2rem,6vw,4rem)}
+p{font-size:1.12rem;line-height:1.55}
+.script{font-family:Pacifico,cursive}
+.badge{
+ display:inline-block;padding:6px 15px;border-radius:99px;background:#fff0f4;
+ color:#c94f72;font-weight:700;margin:3px
+}
+.btn{
+ border:0;border-radius:999px;padding:13px 24px;margin:7px;
+ background:linear-gradient(135deg,#ff94ad,#df5d80);color:#fff;
+ box-shadow:0 9px 22px rgba(223,93,128,.22);cursor:pointer;
+ transition:.18s;position:relative;z-index:5
+}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.btn.secondary{background:#fff;color:#cc5676;border:2px solid #ffc3d1;box-shadow:none}
+.mini{font-size:.95rem;opacity:.72}
+.floating-heart{position:fixed;pointer-events:none;z-index:1;opacity:.7;animation:drift 8s linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0);opacity:0}15%{opacity:.7}100%{transform:translateY(-15vh) rotate(300deg);opacity:0}}
+.fade{animation:fade .7s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+
+/* intro */
+.intro-cat{font-size:70px;animation:bounce 1.7s ease-in-out infinite}
+@keyframes bounce{50%{transform:translateY(-10px) rotate(3deg)}}
+.open-note{max-width:620px;margin:auto}
+
+/* progress */
+.progress{height:10px;background:#ffe2ea;border-radius:99px;overflow:hidden;margin:18px 0}
+.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff9ab2,#df5d80);transition:.3s}
+
+/* bubble game */
+#bubbleZone{
+ height:390px;position:relative;overflow:hidden;border-radius:28px;
+ border:2px dashed #ffc1d0;background:linear-gradient(#fffafe,#ffeaf1)
+}
+.lovebubble{
+ position:absolute;width:64px;height:64px;border-radius:50%;border:3px solid white;
+ background:radial-gradient(circle at 30% 25%,#fff,#ffc3d3 62%,#f58ca8);
+ box-shadow:0 8px 18px #c96a8325;cursor:pointer;color:#d95779;font-size:20px;
+ animation:rise var(--dur) linear infinite;transition:.15s;
+}
+@keyframes rise{from{transform:translateY(430px) scale(.65)}to{transform:translateY(-110px) scale(1.08)}}
+.lovebubble.popped{transform:scale(1.8)!important;opacity:0!important;pointer-events:none}
+
+/* cat game */
+#catGame{
+ position:relative;height:360px;overflow:hidden;border-radius:28px;
+ background:linear-gradient(#fff8fb,#f8f2ff);border:2px solid #f0d6e4;
+}
+.cat{
+ position:absolute;font-size:58px;user-select:none;cursor:pointer;
+ transition:left .25s ease,top .25s ease;filter:drop-shadow(0 8px 8px #8b5a6a18)
+}
+.treat{position:absolute;font-size:28px;animation:treatFloat 1.5s ease-in-out infinite}
+@keyframes treatFloat{50%{transform:translateY(-8px) rotate(8deg)}}
+
+/* memory */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:24px;border:5px solid #fff;box-shadow:0 9px 24px #7c40501b;transition:.22s}
+.gallery img:hover{transform:rotate(-2deg) scale(1.035)}
+
+/* letter */
+.envelope{
+ width:240px;height:155px;margin:22px auto;background:#ffc6d4;border-radius:10px;
+ position:relative;overflow:hidden;cursor:pointer;box-shadow:0 15px 30px #8e4e601b
+}
+.envelope:before{content:"";position:absolute;inset:0;background:#ffb6c9;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
+.seal{position:absolute;z-index:3;left:50%;top:48%;transform:translate(-50%,-50%);font-size:40px}
+.letter{background:#fffdf9;border:1px solid #efd7de;border-radius:22px;padding:22px;text-align:left}
+
+/* wishes */
+.wish-box{min-height:110px;display:grid;place-items:center;text-align:center;background:#fff8fb;border:2px dashed #ffc3d2;border-radius:25px;padding:20px}
+.big-number{font-size:4rem;color:#df5d80;font-weight:800;line-height:1}
+
+/* effects */
+.confetti{position:fixed;z-index:100;pointer-events:none;animation:fall 1.7s ease-out forwards}
+@keyframes fall{to{transform:translate(var(--x),100vh) rotate(720deg);opacity:0}}
+.spark{position:fixed;z-index:100;pointer-events:none;animation:spark .85s ease-out forwards}
+@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
+footer{text-align:center;padding:35px 15px;color:#9c6677}
+@media(max-width:600px){#bubbleZone,#catGame{height:330px}.lovebubble{width:55px;height:55px}.cat{font-size:48px}}
+</style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<section class="screen" id="intro">
+ <div class="card fade" style="text-align:center">
+   <div class="intro-cat">🐱</div>
+   <span class="badge">PRIVATE LITTLE SURPRISE • 27</span>
+   <p class="script" style="font-size:1.6rem">For the quietest, cutest Catisha...</p>
+   <h1>Happy Birthday</h1>
+   <h2 style="font-size:clamp(2.2rem,7vw,4.5rem)">CATISHA ♡</h2>
+   <div class="open-note">
+    <p>Someone very special is turning <b>18</b> tomorrow.</p>
+    <p class="mini">So I made you a tiny world of cats, Bubu & Dudu, games, wishes and one very long birthday hug. 🐱</p>
+   </div>
+   <button class="btn" onclick="begin()">Enter the little world ✨</button>
+   <p class="mini">made by Ursia • our number: 27 • 04.03.2024</p>
+ </div>
+</section>
+
+<section class="screen hidden" id="bubbleScreen">
+ <div class="card">
+  <span class="badge">GAME 1 • 27 BUBBLES 🫧</span>
+  <h2>Pop the little hearts!</h2>
+  <p>For a very introvert-friendly birthday: no crowds, just you and 27 tiny bubbles. ♡</p>
+  <div class="progress"><span id="bubbleProgress"></span></div>
+  <div id="bubbleZone"></div>
+  <p id="bubbleScore">0 / 27</p>
+  <button class="btn hidden" id="bubbleNext" onclick="go('catScreen')">You did it! Meet the cat 🐱</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="catScreen">
+ <div class="card">
+  <span class="badge">GAME 2 • CAT RESCUE 🐱</span>
+  <h2>Catch the sleepy cat!</h2>
+  <p>The cat is shy. Every time you click it, it hides somewhere else. Catch it <b>7 times</b>!</p>
+  <div class="progress"><span id="catProgress"></span></div>
+  <div id="catGame">
+    <div class="cat" id="cat">🐱</div>
+    <div class="treat" style="left:12%;top:25%">🐟</div>
+    <div class="treat" style="right:13%;bottom:22%">🍪</div>
+  </div>
+  <p id="catScore">Cat caught: 0 / 7</p>
+  <button class="btn hidden" id="catNext" onclick="go('galleryScreen')">Cat says you may continue ♡</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="galleryScreen">
+ <div class="card">
+  <span class="badge">GAME 3 • BUBU & DUDU ♡</span>
+  <h2>Our tiny bear universe</h2>
+  <p>Because Bubu & Dudu are basically honorary members of this story.</p>
+  <div class="gallery">
+   <img src="bubu-dudu-1.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-2.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-3.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-4.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-5.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-6.jpg" alt="Bubu and Dudu">
+   <img src="bubu-dudu-7.jpg" alt="Bubu and Dudu">
+  </div>
+  <p style="margin-top:22px"><b>04 March 2024</b> ♡ the beginning of our little story</p>
+  <button class="btn" onclick="go('memoryGame')">One more game 🎀</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="memoryGame">
+ <div class="card" style="text-align:center">
+  <span class="badge">GAME 4 • FIND 27 ✨</span>
+  <h2>Where is 27 hiding?</h2>
+  <p>There is one special tile. Find <b>27</b> among the cute little numbers.</p>
+  <div id="tiles" style="display:grid;grid-template-columns:repeat(5,1fr);gap:9px;max-width:520px;margin:20px auto"></div>
+  <p id="tileMsg" class="mini">Choose a tile ♡</p>
+  <button class="btn hidden" id="tileNext" onclick="go('letterScreen')">You found our number 💗</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="letterScreen">
+ <div class="card" style="text-align:center">
+  <span class="badge">FINAL SURPRISE • 💌</span>
+  <h2>A letter from Ursia</h2>
+  <p class="mini">Tap the envelope. No pressure. Just a little birthday message.</p>
+  <div class="envelope" onclick="openLetter()"><div class="seal">💗</div></div>
+  <div id="letter" class="letter hidden">
+   <p>Dear Catisha,</p>
+   <p><b>Happy 18th Birthday! ♡</b></p>
+   <p>From 04 March 2024 to this little birthday website, our story has collected so many tiny moments. I wanted to make you something that feels like a small room you can open whenever you want: quiet, cute, a little silly, and full of things you love.</p>
+   <p>There are cats because you love cats. There are Bubu & Dudu because we love them. And there are 27 little surprises because 27 is ours.</p>
+   <p>I hope this new chapter gives you peaceful days, lots of laughter, exciting little adventures, and countless reasons to smile. Most importantly, I hope you keep being exactly yourself.</p>
+   <p>Thank you for being my Catisha. ♡</p>
+   <p class="script" style="text-align:right;font-size:1.5rem">— Ursia</p>
+  </div>
+  <button class="btn hidden" id="letterNext" onclick="go('wishScreen')">Open the 27 wishes ✨</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="wishScreen">
+ <div class="card" style="text-align:center">
+  <span class="badge">27 LITTLE WISHES 🎂</span>
+  <div class="big-number" id="wishNum">27</div>
+  <h2>One last birthday game</h2>
+  <p>Press the button and collect all 27 wishes.</p>
+  <div class="wish-box" id="wishBox">Ready? ♡</div>
+  <button class="btn" onclick="nextWish()">Give me a wish ✨</button>
+  <p id="wishCount" class="mini">0 / 27 collected</p>
+  <div id="finalMessage" class="hidden fade">
+   <h2>Happy 18th Birthday, Catisha! 🎂🐱</h2>
+   <p class="script" style="font-size:1.45rem">27 wishes, one tiny website, and a whole lot of birthday love. ♡</p>
+   <button class="btn" onclick="celebrate()">Make it rain hearts 💗</button>
+  </div>
+ </div>
+</section>
+
+<footer>♡ Ursia → Catisha • 27 • 04.03.2024 • made especially for your 18th birthday ♡</footer>
+
+<script>
+const wishes=[
+"May today make you smile for no reason. ♡",
+"May your quiet days feel peaceful and warm.",
+"May every cat you meet be ridiculously cute. 🐱",
+"May you always have a safe little place to be yourself.",
+"May Bubu & Dudu moments never run out. 🐻",
+"May your favorite songs find you at the perfect time.",
+"May you laugh at the silliest things.",
+"May your dreams become exciting plans.",
+"May your 18th year be full of tiny adventures.",
+"May your birthday cake be extra delicious. 🎂",
+"May you collect memories worth keeping.",
+"May you always have someone to share your nonsense with.",
+"May stressful days become easier.",
+"May you discover new things you love.",
+"May your phone gallery fill with happy pictures. 📸",
+"May every month bring one lovely surprise.",
+"May you never feel like you have to change who you are.",
+"May you have peaceful mornings and cozy nights.",
+"May your favorite people make you feel appreciated.",
+"May your confidence grow quietly and steadily.",
+"May every little goal become a little achievement.",
+"May there always be room for more cat pictures.",
+"May you have more 'hehe' moments than 'ugh' moments.",
+"May this year give you stories you'll love remembering.",
+"May you keep your soft, funny, wonderful side.",
+"May 27 keep bringing us lucky little moments. ♡",
+"May Bubu & Dudu officially approve this birthday.",
+"May your 18th chapter be bright, peaceful and fun.",
+"May you get exactly the kind of birthday you secretly wished for.",
+"May you always find something worth smiling about.",
+"May the next chapter be even sweeter than the last.",
+"Happy 18th Birthday, Catisha. ♡"
+];
+
+let bubbleCount=0,catCount=0,wishCount=0,started=false;
+
+function begin(){
+ document.getElementById('intro').classList.add('hidden');
+ document.getElementById('bubbleScreen').classList.remove('hidden');
+ spawnBackgroundHearts(); createBubbles(); createTiles(); moveCat();
+}
+function go(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ window.scrollTo({top:0,behavior:'smooth'});
+ if(id==='catScreen')moveCat();
+}
+function createBubbles(){
+ const z=document.getElementById('bubbleZone');
+ z.innerHTML='';
+ for(let i=0;i<27;i++){
+  const b=document.createElement('button');
+  b.className='lovebubble'; b.textContent=i===26?'27':'♡';
+  b.style.left=(Math.random()*88+2)+'%';
+  b.style.setProperty('--dur',(5+Math.random()*5)+'s');
+  b.style.animationDelay=(-Math.random()*7)+'s';
+  b.onclick=()=>{
+   if(b.classList.contains('popped'))return;
+   b.classList.add('popped'); bubbleCount++; sparkle(b);
+   document.getElementById('bubbleScore').textContent=bubbleCount+' / 27';
+   document.getElementById('bubbleProgress').style.width=(bubbleCount/27*100)+'%';
+   if(bubbleCount===27)document.getElementById('bubbleNext').classList.remove('hidden');
+  };
+  z.appendChild(b);
+ }
+}
+const cat=document.getElementById('cat');
+function moveCat(){
+ const box=document.getElementById('catGame');
+ cat.style.left=(Math.random()*82+5)+'%';
+ cat.style.top=(Math.random()*70+10)+'%';
+}
+cat.addEventListener('click',()=>{
+ catCount++; sparkle(cat); playTone(catCount);
+ document.getElementById('catScore').textContent='Cat caught: '+catCount+' / 7';
+ document.getElementById('catProgress').style.width=(catCount/7*100)+'%';
+ if(catCount>=7){
+  document.getElementById('catNext').classList.remove('hidden');
+  cat.textContent='😸'; cat.style.left='45%';cat.style.top='40%';
+ }else moveCat();
+});
+function createTiles(){
+ const t=document.getElementById('tiles'); t.innerHTML='';
+ let nums=[];
+ for(let i=0;i<24;i++)nums.push(['♡','13','8','4','21','3','11','6','19','5','9','22','14','2','16','7','18','1','12','20','10','15','17','25'][i]);
+ nums.push('27');
+ nums.sort(()=>Math.random()-.5);
+ nums.forEach(n=>{
+  const b=document.createElement('button');
+  b.className='btn secondary';b.style.margin='0';b.style.minHeight='54px';b.textContent=n;
+  b.onclick=()=>{
+   if(n==='27'){
+    b.textContent='💗';b.style.background='#ffe1e9';
+    document.getElementById('tileMsg').textContent='You found it! 27 was waiting for you. ♡';
+    document.getElementById('tileNext').classList.remove('hidden');confetti(18);
+   }else{
+    b.textContent=['🐱','♡','✨','🐾'][Math.floor(Math.random()*4)];
+    setTimeout(()=>b.textContent=n,600);
+   }
+  };
+  t.appendChild(b);
+ });
+}
+function openLetter(){
+ document.getElementById('letter').classList.remove('hidden');
+ document.getElementById('letterNext').classList.remove('hidden');
+ confetti(20);
+}
+function nextWish(){
+ if(wishCount>=27)return;
+ document.getElementById('wishBox').textContent=wishes[wishCount];
+ wishCount++;
+ document.getElementById('wishCount').textContent=wishCount+' / 27 collected';
+ document.getElementById('wishNum').textContent=27-wishCount;
+ sparkle(document.getElementById('wishBox'));
+ if(wishCount===27){
+  document.getElementById('finalMessage').classList.remove('hidden');
+  document.getElementById('wishBox').textContent='You collected all 27. ♡';
+  confetti(50);
+ }
+}
+function sparkle(el){
+ const r=el.getBoundingClientRect();
+ for(let i=0;i<7;i++){
+  const s=document.createElement('span');s.className='spark';s.textContent=['♡','✦','♥','🐾'][Math.floor(Math.random()*4)];
+  s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';
+  s.style.setProperty('--x',(Math.random()*150-75)+'px');s.style.setProperty('--y',(Math.random()*150-75)+'px');
+  document.body.appendChild(s);setTimeout(()=>s.remove(),900);
+ }
+}
+function confetti(n=30){
+ for(let i=0;i<n;i++){
+  const e=document.createElement('div');e.className='confetti';
+  e.textContent=['♡','♥','✦','🐾','🎀','💗'][Math.floor(Math.random()*6)];
+  e.style.left=Math.random()*100+'vw';e.style.top='-20px';
+  e.style.setProperty('--x',(Math.random()*260-130)+'px');
+  e.style.animationDelay=(Math.random()*.6)+'s';
+  document.body.appendChild(e);setTimeout(()=>e.remove(),2400);
+ }
+}
+function celebrate(){confetti(100);for(let i=0;i<20;i++)setTimeout(()=>sparkle(document.body),i*50);}
+function spawnBackgroundHearts(){
+ const holder=document.getElementById('hearts');
+ for(let i=0;i<18;i++){
+  const h=document.createElement('div');h.className='floating-heart';
+  h.textContent=['♡','♥','🐾','✦'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*22)+'px';
+  h.style.animationDelay=(-Math.random()*8)+'s';holder.appendChild(h);
+ }
+}
+function playTone(step){
+ try{
+  const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+  const a=new C(),o=a.createOscillator(),g=a.createGain();
+  o.frequency.value=step%2?660:880;g.gain.value=.04;o.connect(g);g.connect(a.destination);
+  o.start();o.stop(a.currentTime+.08);
+ }catch(e){}
+}
+</script>
+</body>
+</html>
